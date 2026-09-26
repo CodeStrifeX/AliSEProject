@@ -1,4 +1,4 @@
-package project.API;
+package project.api;
 import project.annotations.NetworkAPIPrototype;
 
 public class UserComputeAPIPrototype implements UserComputeAPI {

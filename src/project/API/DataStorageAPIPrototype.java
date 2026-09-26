@@ -1,4 +1,4 @@
-package project.API;
+package project.api;
 import project.annotations.ProcessAPIPrototype;
 import java.util.*;
 
@@ -12,7 +12,7 @@ public class DataStorageAPIPrototype implements DataStorageAPI {
     @Override
     @ProcessAPIPrototype
     public void storeResults(String outputDestinastion, List<Integer> results) {
-        
+
     }
 }
 

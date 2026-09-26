@@ -1,4 +1,4 @@
-package project.API;
+package project.api;
 import project.annotations.ConceptualAPIPrototype;
 import java.util.*;
 
