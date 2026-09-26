@@ -1,3 +1,9 @@
 # Software Engineering Project Starter Code
 
-This repo will start you off with an initial configuration that you'll modify as part of Checkpoint 1. As part of the modifications, you'll eventually delete the contents of this README and replace it with documentation for your project.
+[Part 1]:
+
+The computation my system will be running is finding all of the prime integers from the
+user's given input. (ex: an input of 20 will return 2, 3, 5, 7, 11, 13, 17, and 19)
+
+[Part 2]:
+![API Diagram](APIDiagram.jpg)
