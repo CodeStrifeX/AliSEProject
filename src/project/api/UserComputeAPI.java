@@ -1,4 +1,4 @@
-package project.api_temp;
+package project.api;
 import project.annotations.NetworkAPI;
 
 @NetworkAPI
