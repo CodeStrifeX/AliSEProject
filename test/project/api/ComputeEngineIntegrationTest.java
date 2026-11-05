@@ -20,6 +20,6 @@ public class ComputeEngineIntegrationTest {
         InMemoryInputSource input = new InMemoryInputSource(numbers);
         InMemoryOutputDestination output = new InMemoryOutputDestination();
         controller.userComputation(new ComputationRequest(input, output));
-        Assertions.assertEquals("1:[];10:[2, 3, 5, 7];25:[2, 3, 5, 7, 11, 13, 17, 19, 23];", output.getResults().get(0));
+        Assertions.assertEquals("1:[];10:[2 3 5 7];25:[2 3 5 7 11 13 17 19 23];", output.getResults().get(0));
     }
 }
