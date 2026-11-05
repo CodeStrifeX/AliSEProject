@@ -26,7 +26,7 @@ public class CoordinatingController implements UserComputeAPI {
         String output = "";
         for (int number : input.getNumbers()) {
             ReturnComputation result = computeEngineAPI.searchPrimes(new SendComputation(number));
-            output += number + ":" + result.getPrimes() + delimiter;
+            output += number + ":" + result.getPrimes().toString().replace(", ", " ") + delimiter;
         }
         return output;
     }
