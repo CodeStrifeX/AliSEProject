@@ -22,4 +22,16 @@ public class ComputeEngineIntegrationTest {
         controller.userComputation(new ComputationRequest(input, output));
         Assertions.assertEquals("1:[];10:[2 3 5 7];25:[2 3 5 7 11 13 17 19 23];", output.getResults().get(0));
     }
+
+    @Test
+    public void computeEngineExceptionFail() {
+        InMemoryDataStorage dataStorage = new InMemoryDataStorage();
+        ComputeEngineAPIImpl computeEngine = new ComputeEngineAPIImpl();
+        CoordinatingController controller = new CoordinatingController(dataStorage, computeEngine);
+        InMemoryInputSource input = new InMemoryInputSource(List.of(-10));
+        InMemoryOutputDestination output = new InMemoryOutputDestination();
+        ReturnStatus status = controller.userComputation(new ComputationRequest(input, output));
+        Assertions.assertEquals(ReturnStatus.FAIL, status);
+        Assertions.assertTrue(output.getResults().isEmpty());
+    }
 }
