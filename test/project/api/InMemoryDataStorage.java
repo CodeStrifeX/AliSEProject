@@ -8,8 +8,9 @@ public class InMemoryDataStorage implements DataStorageAPI {
     }
     
     @Override
-    public void storeResults(OutputDestination destination, OutputData data) {
+    public ReturnStatus storeResults(OutputDestination destination, OutputData data) {
         InMemoryOutputDestination inMemoryOutput = (InMemoryOutputDestination) destination;
         inMemoryOutput.getResults().add(data.getResults());
+        return ReturnStatus.PASS;
     }
 }
