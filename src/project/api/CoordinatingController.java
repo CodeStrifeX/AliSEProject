@@ -11,13 +11,20 @@ public class CoordinatingController implements UserComputeAPI {
 
     @Override
     public ReturnStatus userComputation(ComputationRequest request) {
+        // delimiters do not need validation because any character can be used as a delimiter
+        if (request == null || request.getInputSource() == null || request.getOutputDestination() == null) {
+            return ReturnStatus.FAIL;
+        }
         try {
             InputData input = dataStorageAPI.readInput(request.getInputSource());
             if (input.getStatus() == ReturnStatus.FAIL) {
                 return ReturnStatus.FAIL;
             }
             String output = computePrimes(input, request.getDelimiter());
-            dataStorageAPI.storeResults(request.getOutputDestination(), new OutputData(output));
+            ReturnStatus storeStatus = dataStorageAPI.storeResults(request.getOutputDestination(), new OutputData(output));
+            if (storeStatus == ReturnStatus.FAIL) {
+                return ReturnStatus.FAIL;
+            }
             return ReturnStatus.PASS;
         } catch (Exception e) {
             e.printStackTrace();

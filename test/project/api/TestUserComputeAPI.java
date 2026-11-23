@@ -2,6 +2,7 @@ package project.api;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -17,6 +18,6 @@ public class TestUserComputeAPI {
         CoordinatingController controller = new CoordinatingController(mockDataStorage, mockComputeEngine);
         InputSource input = Mockito.mock(InputSource.class);
         OutputDestination output = Mockito.mock(OutputDestination.class);
-        controller.userComputation(new ComputationRequest(input, output));
+        Assertions.assertEquals(ReturnStatus.PASS, controller.userComputation(new ComputationRequest(input, output)));
     }
 }
