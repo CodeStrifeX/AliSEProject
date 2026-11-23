@@ -13,6 +13,9 @@ public class CoordinatingController implements UserComputeAPI {
     public ReturnStatus userComputation(ComputationRequest request) {
         try {
             InputData input = dataStorageAPI.readInput(request.getInputSource());
+            if (input.getStatus() == ReturnStatus.FAIL) {
+                return ReturnStatus.FAIL;
+            }
             String output = computePrimes(input, request.getDelimiter());
             dataStorageAPI.storeResults(request.getOutputDestination(), new OutputData(output));
             return ReturnStatus.PASS;
